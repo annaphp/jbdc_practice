@@ -18,15 +18,21 @@ public class QuoteRepository {
 		this.jdbc = new JdbcTemplate(ds);
 	}
 	
-	//adds message to db using jdbcTemplate
-	public void addMessage(Quote q) {
+	/**
+	 * Stores Quote into a database
+	 * @param q - Quote to be stored
+	 */
+	public void add(Quote q) {
 		  this.jdbc.update(
 		    "insert into quote values ('" + q.getQuote() +"', '" +q.getAttributedTo()+ "')"
 		  );
 		 }
 
-	//returns a list of quotes 
-	
+	/**
+	 * Returns a list of all Quotes contained in database
+	 * RowMapper returns each row and maps it to an object that is placed in a list
+	 * @return List of Quotes
+	 */
 	public List<Quote> findAll(){
 		
 		//jdbc.query() returns a list of Quotes

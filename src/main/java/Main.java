@@ -16,7 +16,7 @@ public class Main {
 		
 		Quote q = new Quote("Hello world", "John");
 		QuoteRepository qr = context.getBean("qrepository",QuoteRepository.class);
-		qr.addMessage(q);
+		qr.add(q);
 		
 		
 		System.out.println(qr.findAll().size());
